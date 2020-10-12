@@ -1,5 +1,5 @@
 %% simulator_main.m
-%%% OCTOBER 8, 2020
+%%% OCTOBER 12, 2020
 
 clear all
 
@@ -9,9 +9,9 @@ close all
 %% Set the division flag, the controller and the strain
 bool_div = true; % bool_div := 'true' | 'false'
 
-strain_mod = 'Cycling'; % strain_mod := 'Cycling' | 'Non-Cycling'
+strain_mod = 'Non-Cycling'; % strain_mod := 'Cycling' | 'Non-Cycling'
 
-ctrl_name = 'MPC'; % ctrl_name := 'RefOsc' | 'MPC' | 'Stop&Go'
+ctrl_name = 'Stop&Go'; % ctrl_name := 'RefOsc' | 'MPC' | 'Stop&Go'
 
 
 %% Set initial number of cells N_init

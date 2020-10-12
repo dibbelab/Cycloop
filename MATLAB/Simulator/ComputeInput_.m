@@ -1,5 +1,5 @@
 %% ComputeInput_.m
-%%% OCTOBER 8, 2020
+%%% OCTOBER 12, 2020
 
 function [U, Theta_r] = ComputeInput_(ITR, N, ctrl_name, Theta_r, x_out, U, sampl_time)
 
@@ -34,9 +34,11 @@ switch ctrl_name
         
     case 'Stop&Go'
         
+        nu = .5;
+        
         if isnan(U(ITR))
             
-            u = StopAndGoCTRL(x_out(end,1:2:end));
+            u = StopAndGoCTRL(x_out(end,1:2:end), nu);
             
             if u == 0
                 

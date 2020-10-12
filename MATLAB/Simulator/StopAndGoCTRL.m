@@ -1,13 +1,7 @@
 %% StopAndGoCTRL.m 
-%%% OCTOBER 9, 2020
+%%% OCTOBER 12, 2020
 
 function u = StopAndGoCTRL(phi, nu)
-
-if nargin == 1
-    
-    nu = .5;
-    
-end
 
 N = sum(~isnan(phi));
 
