@@ -1,11 +1,11 @@
 %% funCodeGen.m
-%%% MARCH 27, 2020
+%%% OCTOBER 12, 2020
 
 function funCodeGen
 
 % codegen InitCon_ -args {coder.typeof(0, 1, 0)} -o InitCon_ -report
 
-codegen StopAndGoCTRL -args {coder.typeof(0, [1,2^15], [0,1])} -o StopAndGoCTRL -report
+codegen StopAndGoCTRL -args {coder.typeof(0, [1,2^15], [0,1]), coder.typeof(0, 1, 0)} -o StopAndGoCTRL -report
 
 % codegen RefOscCTRL_ -args {coder.typeof(0, [500,2^16], [1,1]), coder.typeof(0, [500,1], [1,0])} -o RefOscCTRL_ -report
 
