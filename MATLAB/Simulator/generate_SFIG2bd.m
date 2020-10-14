@@ -1,5 +1,5 @@
-%% code_SFIG2_bd_.m
-%%% OCTOBER 12, 2020
+%% generate_SFIG2bd.m
+%%% OCTOBER 14, 2020
 
 clear all
 
@@ -48,7 +48,7 @@ for z = vctT
         disp(['I am simulating T = ', num2str(z), ...
                 ' min; P = ', num2str(q)]);
             
-            if isfile(['./SFIG2_bd_MAT_/openLoop_T' num2str(z) '_P' ...
+            if isfile(['./SFIG2bd_MAT/openLoop_T' num2str(z) '_P' ...
                     num2str(q) '_' strain_mod '_' ctrl_name '_.mat'])
                 
                 continue
@@ -86,13 +86,13 @@ for z = vctT
             
             [N, t_out, x_out, lineage] = excODEs_(N, ts_i, ...
                 ts_f, U(ITR,:), t_out, x_out, lineage, bool_div, ...
-                strain_mod);
+                strain_mod, 1e-02);
         
         end
         
         
         %% Save the simulation data
-        save(['./SFIG2_bd_MAT_/openLoop_T' num2str(z) '_P' num2str(q) ...
+        save(['./SFIG2bd_MAT/openLoop_T' num2str(z) '_P' num2str(q) ...
             '_' strain_mod '_' ctrl_name '_'], 't_out', 'x_out')
     
     
@@ -113,7 +113,7 @@ for z = 1:numel(vctT)
         disp(['I am analysing T = ', num2str(vctT(z)), ...
                 ' min; P = ', num2str(vctP(q))]);
             
-            if ~isfile(['./SFIG2_bd_MAT_/openLoop_T' num2str(vctT(z)) '_P' ...
+            if ~isfile(['./SFIG2bd_MAT/openLoop_T' num2str(vctT(z)) '_P' ...
                     num2str(vctP(q)) '_' strain_mod '_' ctrl_name '_.mat'])
                 
                 continue
@@ -122,7 +122,7 @@ for z = 1:numel(vctT)
         
         
         %% Load the simulation data
-        load(['./SFIG2_bd_MAT_/openLoop_T' num2str(vctT(z)) '_P' num2str(vctP(q)) ...
+        load(['./SFIG2bd_MAT/openLoop_T' num2str(vctT(z)) '_P' num2str(vctP(q)) ...
             '_' strain_mod '_' ctrl_name '_'], 't_out', 'x_out');
         
         %% Retrieve the cells' phase Theta and the cells' Volume
@@ -169,5 +169,5 @@ ylim([0,8]);
 xlabel('T_u (min)');
 ylabel('$\bar{V}$', 'interpreter', 'latex');
 
-print(F, './Images/SFIG2_bd_', '-dsvg');
-print(F, './Images/SFIG2_bd_', '-dpng');
+print(F, './Images/SFIG2bd', '-dsvg');
+print(F, './Images/SFIG2bd', '-dpng');

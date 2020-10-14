@@ -1,7 +1,8 @@
 %% makeFIG_.m
-%%% OCTOBER 8, 2020
+%%% OCTOBER 14, 2020
 
-function makeFIG_(strain_mod, ctrl_name, t_out, fake_out, mean_out, budd_indx, U)
+function makeFIG_(sim_name, strain_mod, t_out, fake_out, mean_out, ...
+    budd_indx, U)
 
 % This is the code used to draw the third panel
 switch strain_mod
@@ -13,18 +14,6 @@ switch strain_mod
         
         ideal_bi_pc = 60;
         
-        switch ctrl_name
-            
-            case 'RefOsc'
-                
-                fig_name = 'FIG4lo_';
-                
-            case 'MPC'
-                
-                fig_name = 'SFIG7be_';
-                
-        end
-        
     case 'Non-Cycling'
         
         cmap = parula(4);
@@ -32,8 +21,6 @@ switch strain_mod
         dim_bin = 4;
         
         ideal_bi_pc = 75;
-        
-        fig_name = 'FIG3be_';
         
 end
 
@@ -135,5 +122,5 @@ ylabel('Input');
 
 
 %% Saving the figure
-print(F, ['./Images/' fig_name], '-dsvg')
-print(F, ['./Images/' fig_name], '-dpng')
+print(F, ['./Images/' sim_name], '-dsvg')
+print(F, ['./Images/' sim_name], '-dpng')

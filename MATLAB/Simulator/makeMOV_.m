@@ -1,10 +1,10 @@
 %% makeMOV_.m
-%%% OCTOBER 8, 2020
+%%% OCTOBER 14, 2020
 
-function makeMOV_(strain_mod, ctrl_name, Theta, Volume, U, t_out, R, ...
-    Psi, O, Theta_r)
+function makeMOV_(sim_name, strain_mod, ctrl_name, Theta, Volume, U, ...
+    t_out, R, Psi, O, Theta_r)
 
-v = VideoWriter(['./Movies/movie_' strain_mod '_' ctrl_name], 'MPEG-4');
+v = VideoWriter(['./Movies/movie_' sim_name], 'MPEG-4');
 
 v.FrameRate = 12;
 

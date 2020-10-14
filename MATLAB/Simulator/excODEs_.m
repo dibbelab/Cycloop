@@ -1,12 +1,12 @@
 %% excODEs_.m
-%%% OCTOBER 12, 2020
+%%% OCTOBER 14, 2020
 
 function [N, t_out, x_out, lineage] = excODEs_(N, ts_i, ts_f, u, t_out, x_out, ...
-    lineage, bool_div, strain_mod)
+    lineage, bool_div, strain_mod, MaxStepSize)
 
 %% Set variables and options for odesolver
 options = odeset('Events', @div_Events_, 'RelTol', 1e-5, 'AbsTol', ...
-    1e-8, 'MaxStep', 1e-02, 'InitialStep', 1e-16);
+    1e-8, 'MaxStep', MaxStepSize, 'InitialStep', 1e-16);
 
 tSPAN = [ts_i ts_f];
 

@@ -1,5 +1,5 @@
-%% code_SFIG2_ce_.m
-%%% OCTOBER 12, 2020
+%% generate_SFIG2ce.m
+%%% OCTOBER 14, 2020
 
 clear all
 
@@ -41,7 +41,7 @@ for z = vct_nu
     
     disp(['I am simulating nu = ', num2str(z)]);
     
-    if isfile(['./SFIG2_ce_MAT_/closedLoop_nu' num2str(z) '_' ...
+    if isfile(['./SFIG2ce_MAT/closedLoop_nu' num2str(z) '_' ...
             strain_mod '_' ctrl_name '_.mat'])
         
         continue
@@ -78,13 +78,13 @@ for z = vct_nu
         end
         
         [N, t_out, x_out, lineage] = excODEs_(N, ts_i, ts_f, U(ITR,:), ...
-            t_out, x_out, lineage, bool_div, strain_mod);
+            t_out, x_out, lineage, bool_div, strain_mod, 1e-02);
         
     end
     
     
     %% Save the simulation data
-    save(['./SFIG2_ce_MAT_/closedLoop_nu' num2str(z) '_' strain_mod ...
+    save(['./SFIG2ce_MAT/closedLoop_nu' num2str(z) '_' strain_mod ...
             '_' ctrl_name '_.mat'], 't_out', 'x_out')
         
 end
@@ -100,7 +100,7 @@ for z = 1:numel(vct_nu)
     %%
     disp(['I am analysing nu = ', num2str(vct_nu(z))]);
     
-    if ~isfile(['./SFIG2_ce_MAT_/closedLoop_nu' num2str(vct_nu(z)) '_' ...
+    if ~isfile(['./SFIG2ce_MAT/closedLoop_nu' num2str(vct_nu(z)) '_' ...
             strain_mod '_' ctrl_name '_.mat'])
         
         continue
@@ -109,7 +109,7 @@ for z = 1:numel(vct_nu)
     
     
     %% Load the simulation data
-    load(['./SFIG2_ce_MAT_/closedLoop_nu' num2str(vct_nu(z)) '_' ...
+    load(['./SFIG2ce_MAT/closedLoop_nu' num2str(vct_nu(z)) '_' ...
         strain_mod '_' ctrl_name '_.mat'], 't_out', 'x_out');
     
     %% Retrieve the cells' phase Theta and the cells' Volume
@@ -141,5 +141,5 @@ ylim([1.2,2]);
 xlabel('\nu_%');
 ylabel('$\bar{V}$', 'interpreter', 'latex');
 
-print(F, './Images/SFIG2_ce_', '-dsvg');
-print(F, './Images/SFIG2_ce_', '-dpng');
+print(F, './Images/SFIG2ce', '-dsvg');
+print(F, './Images/SFIG2ce', '-dpng');
