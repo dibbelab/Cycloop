@@ -30,7 +30,7 @@ This package is supported for macOS and Windows 10. The package has been tested 
 
 
 # Demo
-See the [Instructions for use](#instructions-for-use) section.
+See the [Instructions for Use](#instructions-for-use) section.
 
 # Instructions for Use
 ## Simulator
@@ -55,6 +55,9 @@ Set the working directory to `./Computationa_Analysis/Cycling/`.
 + Run the script `main_script.m` to generate the outputs related to the microfluidics experiments shown in Fig. 4a-j, Fig. 4p-t, Supplementary Fig. 7f-t, and Supplementary Fig. 8.
 + Run the script `make_SFIG4.m` to generate the analysis shown in Supplementary Fig. 4.
 
+# Illustrative Code
+## Illustrative Platform Code
+The folder `./Illustrative_Platform_Code` contains the illustrative code used to perform the microfluidics control experiments.
 
 # License
-This code is licensed under the **GNU General Public License v3.0**
+This code is licensed under the **GNU General Public License v3.0**.
