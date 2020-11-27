@@ -50,10 +50,24 @@ Set the working directory to `./Computationa_Analysis/NonCycling/`.
 + Run the script `make_SuppFig1_def.m` to generate the single-cell traces shown in Fig. 1d-f.
 + Run the script `make_SuppFig4.m` to generate the analysis shown in Supplementary Fig. 4.
 
+#### Single-cell traces
+To regenerate the single-cell traces, follow these steps:
+1. Download the raw images from https://zenodo.org/record/4045689/files/Raw_images%28NonCycling%29.zip .
+2. Unpack the raw images in the folder `./Computationa_Analysis/NonCycling/Raw_images/`.
+3. Delete the `*.mat` files located in the folder `./Computationa_Analysis/NonCycling/Cell_traces/`.
+4. Run the script `Main.m`.
+
 ### Cycling Strain
 Set the working directory to `./Computationa_Analysis/Cycling/`.
 + Run the script `main_script.m` to generate the outputs related to the microfluidics experiments shown in Fig. 4a-j, Fig. 4p-t, Supplementary Fig. 7f-t, and Supplementary Fig. 8.
 + Run the script `make_SFIG4.m` to generate the analysis shown in Supplementary Fig. 4.
+
+#### Single-cell traces
+To regenerate the single-cell traces, follow these steps:
+1. Download the raw images from https://zenodo.org/record/4045689/files/Raw_images%28Cycling%29.zip .
+2. Unpack the raw images in the folder `./Computationa_Analysis/Cycling/Raw_images/`.
+3. Delete the `*.mat` files located in the folder `./Computationa_Analysis/Cycling/Cell_traces/`.
+4. Run the script `main_script.m`.
 
 # Illustrative Code
 ## Illustrative Platform Code
