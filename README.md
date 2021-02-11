@@ -52,7 +52,7 @@ Set the working directory to `./Computationa_Analysis/NonCycling/`.
 
 #### Single-cell traces
 To regenerate the single-cell traces, follow these steps:
-1. Download the raw images from https://zenodo.org/record/4045689/files/Raw_images%28NonCycling%29.zip .
+1. Download the raw images from https://zenodo.org/record/4516319/files/Raw_images%28NonCycling%29.zip .
 2. Unpack the raw images in the folder `./Computationa_Analysis/NonCycling/Raw_images/`.
 3. Delete the `*.mat` files located in the folder `./Computationa_Analysis/NonCycling/Cell_traces/`.
 4. Run the script `Main.m`.
@@ -65,7 +65,7 @@ Set the working directory to `./Computationa_Analysis/Cycling/`.
 
 #### Single-cell traces
 To regenerate the single-cell traces, follow these steps:
-1. Download the raw images from https://zenodo.org/record/4045689/files/Raw_images%28Cycling%29.zip .
+1. Download the raw images from https://zenodo.org/record/4516319/files/Raw_images%28Cycling%29.zip .
 2. Unpack the raw images in the folder `./Computationa_Analysis/Cycling/Raw_images/`.
 3. Delete the `*.mat` files located in the folder `./Computationa_Analysis/Cycling/Cell_traces/`.
 4. Run the script `main_script.m`.
