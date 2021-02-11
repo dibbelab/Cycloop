@@ -43,7 +43,7 @@ Set the working directory to `./Simulator/`.
 
 ## Computational Analysis
 ### Non-Cycling Strain
-Set the working directory to `./Computationa_Analysis/NonCycling/`.
+Set the working directory to `./Computational_Analysis/NonCycling/`.
 
 + Run the script `Main.m` to generate the outputs related to the microfluidics experiments shown in Fig. 2, Fig. 3f-t, Supplementary Fig. 3, Supplementary Fig. 5, and Supplementary Fig. 6.
 + Run the script `make_SuppFig1_abc.m` to generate the outputs related to the microfluidics experiment shown in Supplementary Fig. 1a-c.
@@ -58,7 +58,7 @@ To regenerate the single-cell traces, follow these steps:
 4. Run the script `Main.m`.
 
 ### Cycling Strain
-Set the working directory to `./Computationa_Analysis/Cycling/`.
+Set the working directory to `./Computational_Analysis/Cycling/`.
 + Run the script `main_script.m` to generate the outputs related to the microfluidics experiments shown in Fig. 4f-t, Supplementary Fig. 7 and Supplementary Fig. 8.
 + Run the script `make_SFIG4.m` to generate the quantitative analysis shown in Supplementary Fig. 4b, d, f, h.
 + Run the script `make_SFIG9.m` to generate the correlation analysis shown in Supplementary Fig. 9.
