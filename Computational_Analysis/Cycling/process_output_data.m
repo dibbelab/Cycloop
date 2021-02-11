@@ -1,5 +1,5 @@
 %% process_output_data.m
-%%% OCTOBER 23, 2020
+%%% FEBRUARY 3, 2021
 
 function process_output_data(exp_name)
 
@@ -64,16 +64,36 @@ radSTD = nanstd(objsRAD,0,2); % Array of std radii
 vct_time = ((1:dimEXP).*smplngTM).'; % Array containing the timestamps
 
 
-%% Budding index and mean phase coherence R
+%% Budding index and Kuramoto order parameter
 dim_n = length(PhaseMAT);
 
 theta_c = .4 * 2 * pi; % Phase value at the G1 to S transition
+
+Theta_ref = nan(1, dim_n); % Allocate an array for reference oscillator phases
 
 BI = nan(1, dim_n); % Allocate an array for budding indices
 
 R = nan(1, dim_n);  % Allocate an array for mean phase coherences
 
+Psi = nan(1, dim_n);  % Allocate an array for mean phases
+
 for p = 1:dim_n
+    
+    try
+        
+        tmp_ref = PhaseMAT(p).Theta_r;
+        
+    catch
+        
+        tmp_ref = [];
+        
+    end
+    
+    if ~isempty(tmp_ref)
+        
+        Theta_ref(p) = mod(tmp_ref, 2*pi);
+        
+    end
     
     tmp_Arr = PhaseMAT(p).stimaf;
     
@@ -89,7 +109,11 @@ for p = 1:dim_n
     
     BI(p) = nmbr_Bud / (nmbr_Bud + nmbr_Unb) * 100;
     
-    R(p) = abs(1./numel(tmp_Arr).*sum(exp(1i*tmp_Arr)));
+    tmp_Z = 1./numel(tmp_Arr).*sum(exp(1i*tmp_Arr));
+    
+    R(p) = abs(tmp_Z);
+    
+    Psi(p) = mod(angle(tmp_Z), 2*pi);
 
 end
 
@@ -119,6 +143,6 @@ end
 %% Save processed data
 save(['./Processed_data/proc_data_' exp_name '.mat'], 'inputLEVELS', ...
     'trMEAN', 'trSTD', 'FluoMAT', 'vct_time', 'radMEAN', 'radSTD', ...
-    'mean_fluo_lim', 'BI', 'R', 'SingleCellTraces');
+    'mean_fluo_lim', 'Theta_ref', 'BI', 'R', 'Psi', 'SingleCellTraces');
 
 end

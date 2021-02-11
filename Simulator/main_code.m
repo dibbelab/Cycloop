@@ -1,5 +1,5 @@
 %% main_code.m
-%%% OCTOBER 22, 2020
+%%% FEBRUARY 7, 2021
 
 clear all
 
@@ -10,8 +10,7 @@ addpath('./Code_simulator/'); % Add this subfolder to the path variable
 
 %%
 sims_list = {{'FIG3_be', true, 'Non-Cycling', 'Stop&Go', 3, 800, 2}, ...
-    {'FIG4_lo', true, 'Cycling', 'RefOsc', 3, 800, 2}, ...
-    {'SFIG7_be', true, 'Cycling', 'MPC', 3, 800, 2}};
+    {'FIG4_be', true, 'Cycling', 'RefOsc', 3, 800, 2}};
 
 
 %%

@@ -1,5 +1,5 @@
-%% generate_SFIG4.m
-%%% OCTOBER 23, 2020
+%% make_SFIG4.m
+%%% FEBRUARY 11, 2021
 
 clear all
 
@@ -7,9 +7,10 @@ close all
 
 
 %% Define the list of experiments
-exp_list = {'FIG4_abcde_-MET', 'FIG4_pqrst_RefOsc_I', ...
+exp_list = {'SFIG7_abcde_-MET', 'FIG4_fghij_RefOsc_I', ...
     'SFIG8_abcde_RefOsc_II', 'SFIG8_fghij_RefOsc_III', ...
-    'SFIG7_fghij_MPC_I', 'SFIG7_klmno_MPC_II', 'SFIG7_pqrst_MPC_III'};
+    'SFIG7_klmno_OpenLoop80', 'FIG4_pqrst_RefOscG', ...
+    'FIG4_klmno_OpenLoopG'};
 
 
 %% Set the total number of frames
@@ -34,8 +35,9 @@ vct_trMean_psd = nan(3,numel(exp_list));
 
 
 %% Define the labels associated to each experiment
-VarLabels = {'-MET','Ref. osc. I','Ref. osc. II','Ref. osc. III',...
-    'MPC I','MPC II','MPC III'};
+VarLabels = {'-MET', 'Ref. osc. I','Ref. osc. II', ...
+    'Ref. osc. III', 'Open loop (80 min)', 'Ref. osc. G', ...
+    'Open loop (80 min) G'};
 
 cat_VarNames = categorical(VarLabels);
 cat_VarNames = reordercats(cat_VarNames,VarLabels);
@@ -47,9 +49,10 @@ cMap = [0.4000    0.7608    0.6471;
         0.9882    0.5529    0.3843;
         0.9882    0.5529    0.3843;
         0.5529    0.6275    0.7961;
-        0.5529    0.6275    0.7961;
+        0.9882    0.5529    0.3843;
         0.5529    0.6275    0.7961];
 
+cMap_R = cMap; % Colormap for R
     
 %% Process the data to generate the SFIG4
 for q = 1:numel(exp_list)
@@ -60,14 +63,14 @@ for q = 1:numel(exp_list)
     try
         
         load(['./Processed_data/proc_data_' exp_name '.mat'], 'trMEAN', ...
-            'trSTD', 'radMEAN', 'radSTD', 'R');
+            'trSTD', 'radMEAN', 'radSTD', 'R', 'Psi');
         
     catch % Otherwise, process the output data
         
         process_output_data(exp_name);
         
         load(['./Processed_data/proc_data_' exp_name '.mat'], 'trMEAN', ...
-            'trSTD', 'radMEAN', 'radSTD', 'R');
+            'trSTD', 'radMEAN', 'radSTD', 'R', 'Psi');
         
     end
     
@@ -77,6 +80,18 @@ for q = 1:numel(exp_list)
     matr_trMean(:,q) = trMEAN;
     matr_Rad(:,q) = radMEAN;
     
+    
+    %% Assess the significance of R through Psi
+    tmp_Psi = Psi(1,tim_indx);
+    tmp_Psi = tmp_Psi(~isnan(tmp_Psi)); % Check if Psi contains NaN
+    Psi_R = abs(1./numel(tmp_Psi).*sum(exp(1i*tmp_Psi)));
+    V = 1 - Psi_R; % Circular variance V
+    
+    if V < .5
+        
+        cMap_R(q,:) = cMap(q,:)+.2;
+        
+    end
     
     %% Compute the PSD
     data_trMean = matr_trMean(tim_indx,q);
@@ -125,7 +140,7 @@ F_SFIG4b_ = figure('Position', [1 1 540 360], 'DefaultAxesFontSize', 16);
 hold on;
 tmp_b = bar(cat_VarNames, R_mean.');
 tmp_b.FaceColor = 'Flat';
-tmp_b.CData = cMap;
+tmp_b.CData = cMap_R;
 ylabel('R');
 print(F_SFIG4b_, './Figures/SFIG4b', '-dpng')
 

@@ -1,15 +1,15 @@
 %% main_script.m
-%%% OCTOBER 23, 2020
+%%% FEBRUARY 7, 2021
 
 clear all
 
 close all
 
 %% List of microfluidics experiments of the cycling strain
-exp_list = {'FIG4_abcde_-MET', 'FIG4_fghij_+MET', ...
-    'FIG4_pqrst_RefOsc_I', 'SFIG8_abcde_RefOsc_II', ...
-    'SFIG8_fghij_RefOsc_III', 'SFIG7_fghij_MPC_I', ...
-    'SFIG7_klmno_MPC_II', 'SFIG7_pqrst_MPC_III'};
+exp_list = {'SFIG7_abcde_-MET', 'SFIG7_fghij_+MET', ...
+    'FIG4_fghij_RefOsc_I', 'SFIG8_abcde_RefOsc_II', ...
+    'SFIG8_fghij_RefOsc_III', 'SFIG7_klmno_OpenLoop80', ...
+    'FIG4_pqrst_RefOscG', 'FIG4_klmno_OpenLoopG'};
 
 
 %%
