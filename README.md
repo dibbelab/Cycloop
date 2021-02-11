@@ -14,7 +14,11 @@
 `Cycloop` requires only a standard computer with enough RAM to run the code in the MATLAB environment.
 
 ## OS Requirements
+<<<<<<< HEAD
 This package is supported for macOS Catalina and Windows 10. The package has been tested on the following systems:
+=======
+This package is supported for macOS and Windows 10. The package has been tested on the following systems:
+>>>>>>> 608b5ddd939e86af912519111ccd95dc50b7ab1e
 + macOS Catalina
 + Windows 10
 
@@ -46,6 +50,7 @@ Set the working directory to `./Simulator/`.
 Set the working directory to `./Computationa_Analysis/NonCycling/`.
 
 + Run the script `Main.m` to generate the outputs related to the microfluidics experiments shown in Fig. 2, Fig. 3f-t, Supplementary Fig. 3, Supplementary Fig. 5, and Supplementary Fig. 6.
+<<<<<<< HEAD
 + Run the script `make_SuppFig1_abc.m` to generate the outputs related to the microfluidics experiment shown in Supplementary Fig. 1a-c.
 + Run the script `make_SuppFig1_def.m` to generate the single-cell traces shown in Supplementary Fig. 1d-f.
 + Run the script `make_SuppFig4.m` to generate the quantitative analysis shown in Supplementary Fig. 4a, c, e, g.
@@ -53,6 +58,15 @@ Set the working directory to `./Computationa_Analysis/NonCycling/`.
 #### Single-cell traces
 To regenerate the single-cell traces, follow these steps:
 1. Download the raw images from https://zenodo.org/record/4516319/files/Raw_images%28NonCycling%29.zip .
+=======
++ Run the script `make_SuppFig1_abc.m` to generate the outputs related to the microfluidics experiment shown in Fig. 1a-c.
++ Run the script `make_SuppFig1_def.m` to generate the single-cell traces shown in Fig. 1d-f.
++ Run the script `make_SuppFig4.m` to generate the analysis shown in Supplementary Fig. 4.
+
+#### Single-cell traces
+To regenerate the single-cell traces, follow these steps:
+1. Download the raw images from https://zenodo.org/record/4045689/files/Raw_images%28NonCycling%29.zip .
+>>>>>>> 608b5ddd939e86af912519111ccd95dc50b7ab1e
 2. Unpack the raw images in the folder `./Computationa_Analysis/NonCycling/Raw_images/`.
 3. Delete the `*.mat` files located in the folder `./Computationa_Analysis/NonCycling/Cell_traces/`.
 4. Run the script `Main.m`.
@@ -70,6 +84,16 @@ To regenerate the single-cell traces, follow these steps:
 3. Delete the `*.mat` files located in the folder `./Computationa_Analysis/Cycling/Cell_traces/`.
 4. Run the script `main_script.m`.
 
+<<<<<<< HEAD
+=======
+#### Single-cell traces
+To regenerate the single-cell traces, follow these steps:
+1. Download the raw images from https://zenodo.org/record/4045689/files/Raw_images%28Cycling%29.zip .
+2. Unpack the raw images in the folder `./Computationa_Analysis/Cycling/Raw_images/`.
+3. Delete the `*.mat` files located in the folder `./Computationa_Analysis/Cycling/Cell_traces/`.
+4. Run the script `main_script.m`.
+
+>>>>>>> 608b5ddd939e86af912519111ccd95dc50b7ab1e
 # Illustrative Code
 ## Illustrative Platform Code
 The folder `./Illustrative_Platform_Code` contains the illustrative code used to perform the microfluidics control experiments.
