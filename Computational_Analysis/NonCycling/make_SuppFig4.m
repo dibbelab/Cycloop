@@ -1,5 +1,5 @@
 %% make_SuppFig4.m
-%%% FEBRUARY 11, 2021
+%%% FEBRUARY 12, 2021
 
 clear all
 
@@ -61,7 +61,6 @@ cMap = [0.4000    0.7608    0.6471;
         0.9882    0.5529    0.3843;
         0.5529    0.6275    0.7961];
 
-cMap_R = cMap; % Colormap for R
     
 %% Process the data to generate the Supp. Fig. 4
 for q = 1:numel(exp_list)
@@ -97,17 +96,6 @@ for q = 1:numel(exp_list)
     matr_trMean(:,q) = MeanFluo;
     matr_Rad(:,q) = radMEAN;
     
-    %% Assess the significance of R through Psi
-    tmp_Psi = Psi(tim_indx,1);
-    tmp_Psi = tmp_Psi(~isnan(tmp_Psi)); % Check if Psi contains NaN
-    Psi_R = abs(1./numel(tmp_Psi).*sum(exp(1i*tmp_Psi)));
-    V = 1 - Psi_R; % Circular variance V
-    
-    if V < .5
-        
-        cMap_R(q,:) = cMap(q,:)+.2;
-        
-    end
     
     %% Compute the PSD
     data_trMean = matr_trMean(tim_indx,q);
@@ -154,7 +142,7 @@ F_SFIG4a_ = figure('Position', [1 1 540 360], 'DefaultAxesFontSize', 16);
 hold on;
 tmp_b = bar(cat_VarNames, R_mean.');
 tmp_b.FaceColor = 'Flat';
-tmp_b.CData = cMap_R;
+tmp_b.CData = cMap;
 ylabel('R');
 print(F_SFIG4a_, './Figures/SuppFig4_a', '-dpng')
 
