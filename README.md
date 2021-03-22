@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4627227.svg)](https://doi.org/10.5281/zenodo.4627227)
+
 # Cycloop
 
 `Cycloop` is the repository containing the MATLAB code that supports the findings of the study: 'Automatic synchronisation of the cell cycle in budding yeast through closed-loop feedback control.'
